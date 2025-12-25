@@ -18,7 +18,8 @@ def test_api_hello(client):
     response = client.get('/api/hello')
     assert response.status_code == 200
     data = response.get_json()
-    assert data['message'] == 'Hello from Flask!'
+    # THIS WILL FAIL - wrong message expected
+    assert data['message'] == 'Wrong message here!'  # Changed to fail
 
 def test_invalid_route(client):
     """Test 404 on invalid route"""
